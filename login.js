@@ -13,7 +13,7 @@ const user = [
     {
         name: "ADITI PODDAR",
         email: "iamaditi2025@gmail.com",
-        password: "ADITI@1234"
+        password: "ADITI@SANKET"
     },
 
     {
@@ -79,7 +79,7 @@ const user = [
     {
         name: "SANKET SWARNAKAR",
         email: "2025sank@gmail.com",
-        password: "SANKET@1234"
+        password: "SANKET@ADITI"
     },
     {
         name: "AKHIL TARAFDAR",
