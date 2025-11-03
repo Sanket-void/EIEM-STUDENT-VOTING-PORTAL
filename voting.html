@@ -171,7 +171,7 @@
   <div class="container" role="main" aria-labelledby="pageTitle">
     <h1 id="pageTitle">PRESIDENT</h1>
 
-    <div class="content">
+    <div class="content" id="votingContent">
       <!-- Left: candidate list -->
       <div class="candidates" id="candidateList">
 
@@ -238,6 +238,16 @@
 
   <script>
     // tiny script to keep visual candidate cards and radio inputs synced
+
+    const mainContainer = document.getElementById("votingContent");
+    const isAuthenticated = localStorage.getItem("loggedInUser");
+
+    if(!isAuthenticated) {
+      window.location.href = "login.html";
+    }
+
+
+
     const rows = document.querySelectorAll('.candidate-row');
     const radios = {
       '1': document.getElementById('cand1'),
