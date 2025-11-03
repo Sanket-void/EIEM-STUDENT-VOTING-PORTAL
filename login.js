@@ -222,6 +222,9 @@ document.addEventListener('DOMContentLoaded', function () {
             loginButton.textContent = 'Logging in...';
             loginButton.disabled = true;
 
+            console.log({name, email, password});
+            
+
             const authenticatedUser = authenticateUser(name, email, password);
 
             setTimeout(() => {
@@ -253,6 +256,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function authenticateUser(name, email, password) {
-        return user.find(user => user.name === name && user.email === email && user.password === password);
+        return user.find(user => user.name.toUpperCase() === name.toUpperCase() && user.email === email && user.password === password.toUpperCase());
     }
 });
