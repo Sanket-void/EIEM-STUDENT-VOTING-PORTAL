@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://uploads.onecompiler.io/4437haxep/4436y2x5e/1000286408.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;    
+    }
+
+    form {
+      background-color: rgba(0, 0, 0, 0.2); 
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      width: 300px;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    /* ✅ Matching Register link style */
+    .register-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .register-link a {
+      color: #FFD700; /* bright yellow */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+      color: #FFA500; /* orange hover effect */
+    }
+  </style>
+</head>
+<body>
+  <form action="/login_action.php">
+    <h2>Login Form</h2>
+
+    <div class="input-container">
+      <input class="input-field" type="text" placeholder="Email ID" name="email" required>
+    </div>
+
+    <div class="input-container">
+      <input class="input-field" type="password" placeholder="Password" name="psw" required>
+    </div>
+
+    <button type="submit" class="btn">Login</button>
+
+    <div class="register-link">
+      Don’t have an account? <a href="register.html">Register here</a>
+    </div>
+  </form>
+</body>
+</html>
