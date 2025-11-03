@@ -52,7 +52,7 @@ const user = [
         password: "SOUTAM@1234"
     },
     {
-        name: "SHAGNIK ROY CHOWDHURY",
+        name: "SHAGNIK ROY CHOUDHURY",
         email: "shagnikroy70@gmail.com",
         password: "SHAGNIK@1234"
     },
@@ -93,7 +93,7 @@ const user = [
     },
     {
         name: "ANUSMITA SAHA",
-        email: "iamanusmita20@gmail.com",
+        email: "imanusmita20@gmail.com",
         password: "ANUSMITA@1234"
     },
     {
