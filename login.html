@@ -1,11 +1,27 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Login Form</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Card</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       background-image: url('https://uploads.onecompiler.io/4437haxep/4436y2x5e/1000286408.jpg');
       background-repeat: no-repeat;
       background-size: cover;
@@ -14,80 +30,214 @@
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
-      align-items: center;    
+      align-items: center;
     }
 
-    form {
-      background-color: rgba(0, 0, 0, 0.2); 
-      padding: 30px;
-      border-radius: 10px;
-      color: white;
-      width: 300px;
+    .login-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5pxs);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    .login-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-header {
       text-align: center;
+      margin-bottom: 30px;
     }
 
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 5px;
-      outline: none;
+    .card-header h1 {
+      color: #1f1e1e;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      border: none;
-      width: 100%;
-      border-radius: 5px;
-      cursor: pointer;
+    .card-header p {
+      color: #000000b4;
+      font-size: 15px;
     }
 
-    button:hover {
-      background-color: #45a049;
-    }
-
-    h2 {
+    .input-group {
       margin-bottom: 20px;
+      position: relative;
     }
 
-    /* ✅ Matching Register link style */
-    .register-link {
-      margin-top: 15px;
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #353535;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #4a7dff;
+      box-shadow: 0 0 0 3px rgba(74, 125, 255, 0.2);
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 15px;
+      top: 42px;
+      color: #999;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
       font-size: 14px;
     }
 
-    .register-link a {
-      color: #FFD700; /* bright yellow */
-      text-decoration: none;
-      font-weight: bold;
+    .remember-me {
+      display: flex;
+      align-items: center;
     }
 
-    .register-link a:hover {
+
+    .remember-me input {
+      margin-right: 8px;
+    }
+
+    .forgot-password {
+      color: #4a7dff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .forgot-password:hover {
+      color: #2c5fd6;
       text-decoration: underline;
-      color: #FFA500; /* orange hover effect */
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(to right, #4a7dff, #6a11cb);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 25px;
+    }
+
+    .login-button:hover {
+      background: linear-gradient(to right, #3a6de0, #5a0fb5);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+    }
+
+    .login-button:active {
+      transform: translateY(0);
+    }
+
+    .signup-link {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .signup-link a {
+      color: #4a7dff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .signup-link a:hover {
+      color: #2c5fd6;
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .password-toggle {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 30px 20px;
+      }
+
+      .options {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .forgot-password {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <form action="/login_action.php">
-    <h2>Login Form</h2>
-
-    <div class="input-container">
-      <input class="input-field" type="text" placeholder="Email ID" name="email" required>
+  <div class="login-card">
+    <div class="card-header">
+      <h1>Welcome Back</h1>
     </div>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input style="text-transform: uppercase;" type="text" id="name" placeholder="Enter your Name" required>
+        <i class="fas fa-user"></i>
+        <div class="error-message" id="nameError">Please enter your name</div>
+      </div>
 
-    <div class="input-container">
-      <input class="input-field" type="password" placeholder="Password" name="psw" required>
-    </div>
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <i class="fas fa-envelope"></i>
+        <div class="error-message" id="emailError">Please enter a valid email address</div>
+      </div>
 
-    <button type="submit" class="btn">Login</button>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password"
+          required>
+        <i class="fas fa-lock password-toggle" id="togglePassword"></i>
+        <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+      </div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  </div>
 
-    <div class="register-link">
-      Don’t have an account? <a href="register.html">Register here</a>
-    </div>
-  </form>
+  <script src="login.js"></script>
 </body>
+
 </html>
