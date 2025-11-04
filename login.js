@@ -1,4 +1,5 @@
 const user = [
+// <<<<<<< HEAD
     { name: "SUBHADEEP SUR", email: "subhadeep@gmail.com", password: "SUBHADEEP@1234", photo:"" },
     { name: "SONIYA BOSE", email: "soniyabose7@gmail.com", password: "SONIYA@1234", photo:"soniya.jpg" },
     { name: "ADITI PODDAR", email: "imaditi2025@gmail.com", password: "ADITI@SANKET", photo:"aditi.jpg" },
@@ -87,5 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function hideError(errorElement) {
         errorElement.style.display = 'none';
+    }
+
+    function authenticateUser(name, email, password) {
+        return user.find(user => user.name.toUpperCase() === name.toUpperCase() && user.email === email && user.password === password.toUpperCase());
     }
 });
