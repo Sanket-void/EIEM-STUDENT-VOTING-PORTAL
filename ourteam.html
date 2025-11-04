@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | EIEM Student Voting Portal</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, #16222A, #3A6073);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 45px;
+      text-align: center;
+      letter-spacing: 1px;
+      color: #f1f5f9;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Highlighted text “C.S.T” */
+    h1 span {
+      color: #00d4ff;
+      text-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+    }
+
+    /* === TEAM GRID === */
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* ✅ 3 cards per row */
+      gap: 35px;
+      width: 100%;
+      max-width: 1100px;
+      perspective: 1000px;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: all 0.45s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transform: translateY(0) scale(1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .team-member:hover {
+      transform: translateY(-18px) scale(1.08);
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.7),
+                  0 0 25px rgba(0, 212, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .team-member::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 50%;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.12), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .team-member:hover::before {
+      opacity: 1;
+    }
+
+    .team-member img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      margin-bottom: 18px;
+      transition: all 0.4s ease;
+      z-index: 2;
+      position: relative;
+    }
+
+    .team-member:hover img {
+      transform: translateY(-8px) scale(1.12);
+      border-color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
+    }
+
+    .team-member h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
+      transition: transform 0.4s ease, color 0.4s ease;
+    }
+
+    .team-member .roll {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .team-member p {
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+      margin: 0 auto;
+      max-width: 250px;
+      transition: transform 0.4s ease, color 0.4s ease;
+    }
+
+    .team-member:hover h3,
+    .team-member:hover p,
+    .team-member:hover .roll {
+      transform: translateY(-6px);
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .team-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-container {
+        grid-template-columns: 1fr;
+      }
+      body { padding: 40px 15px; }
+      h1 { font-size: 2rem; margin-bottom: 30px; }
+      .team-member { padding: 28px 18px; height: auto; }
+      .team-member img { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meet Our Team <span>C.S.T</span></h1>
+
+  <div class="team-container">
+    <div class="team-member">
+      <img src="madhisalini.jpg" alt="Member 1">
+      <h3>MADHUSHALINI GHOSAL</h3>
+      <div class="roll">Roll: 11</div>
+      <p>Interests: Front-end, Back-end, Database development, UI design, and creative animations.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="anushmita.jpg" alt="Member 2">
+      <h3>Anusmita Saha</h3>
+      <div class="roll">Roll: 36</div>
+      <p>Interests: Backend development, databases, and secure architectures.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="moumita.jpg" alt="Member 3">
+      <h3>MOUMITA GHOSH</h3>
+      <div class="roll">Roll: 7</div>
+      <p>Interests: UI/UX research, interface design, and accessibility.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="falguni.jpg" alt="Member 4">
+      <h3>FALGUNI SARKAR</h3>
+      <div class="roll">Roll: 10</div>
+      <p>Interests: Project coordination, communication, and management.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="aditi.jpg" alt="Member 5">
+      <h3>ADITI PODDAR</h3>
+      <div class="roll">Roll: 5</div>
+      <p>Interests: Programming logic, AI tools, and cloud computing.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="kripa.jpg" alt="Member 6">
+      <h3>KRIPA SAHA</h3>
+      <div class="roll">Roll: 30</div>
+      <p>Interests: Technical writing and software documentation.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="payel.jpg" alt="Member 7">
+      <h3>PAYEL BISWAS</h3>
+      <div class="roll">Roll: 34</div>
+      <p>Interests: System optimization and resource management.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="soniya.jpg" alt="Member 8">
+      <h3>SONIYA BOSE</h3>
+      <div class="roll">Roll: 42</div>
+      <p>Interests: Testing, quality assurance, and product stability.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="pushpita.jpg" alt="Member 9">
+      <h3>PUSHPITA KHATUA</h3>
+      <div class="roll">Roll: 40</div>
+      <p>Interests: Graphics design, branding, and digital illustration.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="sagnik.jpg" alt="Member 10">
+      <h3>SHAGNIK ROY CHOUDHURY</h3>
+      <div class="roll">Roll: 18</div>
+      <p>Interests: Research, creative ideation, and innovation strategy.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="sonali.jpg" alt="Member 11">
+      <h3>SONALI KAR</h3>
+      <div class="roll">Roll: 42</div>
+      <p>Interests: Marketing, outreach, and digital media communication.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="soutam.jpg" alt="Member 12">
+      <h3>SOUTAM GHOSH</h3>
+      <div class="roll">Roll: 17</div>
+      <p>Interests: Full-stack web development and agile methodologies.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="akhil.jpg" alt="Member 13">
+      <h3>AKHIL TARAFDER</h3>
+      <div class="roll">Roll: 33</div>
+      <p>Interests: Cybersecurity, ethical hacking, and network protection.</p>
+    </div>
+
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="Member 14">
+      <h3>Member 14</h3>
+      <div class="roll">Roll: CST014</div>
+      <p>Interests: Leadership, innovation, and creative project vision.</p>
+    </div>
+  </div>
+</body>
+</html>

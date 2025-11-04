@@ -1,314 +1,372 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Voting — PRESIDENT</title>
-  <style>
-    :root{
-      --panel-bg: rgba(255,255,255,0.92);
-      --accent: #d0404f;
-      --muted: #666;
-      --card-border: #2f6b9a;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EIEM Student Voting Portal — PRESIDENT</title>
 
-    /* Background image (replace path if needed) */
-    body{
-      margin:0;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background-image: url('https://uploads.onecompiler.io/4437haxep/4436y2x5e/1000286408.jpg');
-      background-size: cover;
-      background-position: center;
-      /* dim the background for readability */
-      background-repeat: no-repeat;
-      min-height:100vh;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:40px;
-      box-sizing:border-box;
-    }
+<style>
+:root {
+  --accent:#2563eb;
+  --accent-light:#3b82f6;
+  --surface:rgba(255,255,255,0.07);
+  --glass:rgba(255,255,255,0.12);
+  --border:rgba(255,255,255,0.15);
+  --text:#f9fafb;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Roboto,system-ui;}
+body{
+  min-height:100vh;
+  background:url("https://uploads.onecompiler.io/4437haxep/4436y2x5e/1000286408.jpg") center/cover no-repeat fixed;
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(6px);
+  z-index:0;
+}
 
-    /* translucent main container */
-    .container{
-      width:980px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(128,128,128,0.80));
-      border:3px solid rgba(0,0,0,0.12);
-      padding:28px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.98);
-      border-radius:6px;
-    }
+/* --- HEADER --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  background: linear-gradient(90deg, rgba(13, 22, 45, 0.9) 0%, rgba(8, 19, 40, 0.8) 100%);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
 
-    h1{
-      margin:0 0 18px 0;
-      text-align:center;
-      letter-spacing:2px;
-      font-size:22px;
-      font-weight:700;
-      color:#0f2130;
-    }
+/* Left Logo */
+header .left img {
+  height: 68px;
+  width: auto;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 4px;
+}
 
-    /* layout: left column for list, right column for controls */
-    .content{
-      display:grid;
-      grid-template-columns: 1fr 190px;
-      gap:18px;
-      align-items:start;
-    }
+/* Center Title */
+header .center {
+  text-align: center;
+  flex: 1;
+  color: #f9fafb;
+}
 
-    /* card list (three rows) */
-    .candidates{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      padding-right:8px;
-    }
+header .center h2 {
+  font-size: 22px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  margin: 0;
+}
 
-    .candidate-row{
-      display:grid;
-      grid-template-columns: 110px 1fr;
-      gap:16px;
-      align-items:center;
-      padding:12px;
-      border:2px solid rgba(47,107,154,0.18);
-      border-radius:4px;
-      background: var(--panel-bg);
-    }
+header .center .subtitle {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 2px;
+  font-style: italic;
+}
 
-    .candidate-photo{
-      width:110px;
-      height:110px;
-      border:2px solid #2f6b9a;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      background:#fff;
-    }
+/* Right Section */
+header .right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 
-    .candidate-photo img{
-      max-width:100%;
-      max-height:100%;
-      display:block;
-      object-fit:cover;
-    }
+/* Larger user photo */
+header .user-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
 
-    .candidate-info{
-      font-size:15px;
-      color:#111;
-      line-height:1.25;
-    }
+header .user-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .candidate-title{
-      font-weight:700;
-      margin-bottom:6px;
-    }
+/* User info alignment */
+header .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+}
 
-    .candidate-sub{
-      color:var(--muted);
-      font-size:14px;
-    }
+header .user-info span {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #e2e8f0;
+  font-size: 15.5px;
+  line-height: 1.2;
+}
 
-    /* Right column: radio options and navigation buttons */
-    .controls{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      align-items:flex-start;
-    }
+header .user-info button {
+  background: linear-gradient(to right, #2563eb, #1e40af);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 7px 18px;
+  cursor: pointer;
+  font-size: 13.5px;
+  transition: background 0.25s, transform 0.25s;
+  align-self: flex-start;
+}
 
-    .vote-option{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:16px;
-    }
+header .user-info button:hover {
+  background: linear-gradient(to right, #1e40af, #1d4ed8);
+  transform: translateY(-2px);
+}
 
-    .vote-option input[type="radio"]{
-      width:18px;
-      height:18px;
-    }
+/* Adjust page content margin for fixed header */
+main {
+  margin-top: 120px;
+}
 
-    .nav-buttons{
-      margin-top:auto;
-      display:flex;
-      gap:12px;
-    }
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 12px;
+  }
 
-    button{
-      padding:8px 14px;
-      border-radius:6px;
-      border:1px solid rgba(0,0,0,0.12);
-      cursor:pointer;
-      background:#eef7ff;
-      font-weight:600;
-    }
+  header .right {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    button.primary{
-      background:#2f6b9a;
-      color:#fff;
-      border-color:rgba(0,0,0,0.08);
-    }
+  header .user-info {
+    align-items: center;
+  }
 
-    /* small visual when candidate is selected */
-    .candidate-row.selected{
-      box-shadow: 0 6px 18px rgba(47,107,154,0.14);
-      border-color: #2f6b9a;
-      transform:translateY(-2px);
-    }
+  header .user-photo {
+    width: 55px;
+    height: 55px;
+  }
 
-    /* responsive */
-    @media (max-width: 860px){
-      .container{ width:100%; padding:18px; }
-      .content{ grid-template-columns: 1fr; }
-      .controls{ flex-direction:row; flex-wrap:wrap; align-items:center; }
-      .nav-buttons{ margin-top:0; margin-left:auto; }
-    }
+  main {
+    margin-top: 160px;
+  }
+}
 
-  </style>
+/* --- CONTENT --- */
+main{
+  position:relative;z-index:1;width:90%;max-width:980px;
+  background:var(--surface);backdrop-filter:blur(14px);border:1px solid var(--border);
+  border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.45);
+  padding:40px 32px 50px;animation:fadein .6s ease;
+}
+@keyframes fadein{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+h1{text-align:center;font-size:26px;letter-spacing:1px;margin-bottom:25px;font-weight:700;}
+.candidates{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+.card{
+  background:var(--glass);border:1px solid var(--border);border-radius:16px;
+  padding:20px;text-align:center;transition:all .3s;cursor:pointer;
+}
+.card:hover{transform:translateY(-5px);border-color:var(--accent);}
+.card.selected{border-color:var(--accent);box-shadow:0 0 25px rgba(37,99,235,0.45);}
+.card img{width:120px;height:120px;object-fit:cover;border-radius:50%;
+  border:3px solid rgba(255,255,255,0.2);margin-bottom:10px;}
+.card strong{display:block;font-size:17px;margin-bottom:4px;}
+.card small{font-size:14px;opacity:.85;}
+.vote-btn{
+  display:block;
+  background:var(--accent);color:#fff;border:none;border-radius:30px;
+  padding:13px 45px;font-size:17px;font-weight:600;cursor:pointer;transition:all .3s;
+}
+.vote-btn:hover{background:var(--accent-light);transform:translateY(-3px);}
+/* Modal */
+.modal{position:fixed;inset:0;display:none;background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(6px);justify-content:center;align-items:center;z-index:99;}
+.modal-content{
+  background:var(--surface);border:1px solid var(--border);padding:30px 25px;
+  border-radius:16px;width:320px;text-align:center;animation:fadein .4s ease;
+}
+.modal-content img{width:100px;height:100px;border-radius:50%;object-fit:cover;
+  margin-bottom:15px;border:2px solid var(--accent);}
+.modal-content h3{font-size:20px;margin-bottom:8px;}
+.modal-content p{font-size:15px;margin-bottom:20px;opacity:.9;}
+.modal-content button{margin:0 5px;padding:10px 22px;border:none;border-radius:6px;
+  font-weight:600;cursor:pointer;}
+.modal-content .confirm{background:var(--accent);color:#fff;}
+.modal-content .close{background:rgba(255,255,255,0.15);color:#fff;}
+.modal-content button:hover{filter:brightness(1.2);}
+.buttons-container {
+  width: 100%;
+  height: auto;
+  border: rebeccapurple;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.vote-btn-not {
+  outline: none;
+  border: 2px solid white;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: medium;
+  padding:13px 45px;
+  height: fit-content;
+  border-radius: 20px;
+  transition: all .2s ease-in;
+  cursor: pointer;
+}
+
+.vote-btn-not:hover {
+  background-color: #fff;
+  color: #000;
+}
+</style>
 </head>
+
 <body>
-  <div class="container" role="main" aria-labelledby="pageTitle">
-    <h1 id="pageTitle">PRESIDENT</h1>
-
-    <div class="content" id="votingContent">
-      <!-- Left: candidate list -->
-      <div class="candidates" id="candidateList">
-
-        <label class="candidate-row" data-candidate="1">
-          <div class="candidate-photo">
-            <!-- replace with candidate images if available -->
-            <img src="https://uploads.onecompiler.io/4437haxep/443jcuhtp/images%20(1).jpg" alt="Candidate 1 photo">
-          </div>
-          <div class="candidate-info">
-            <div class="candidate-title">Candidate 1 — Dilip Ghosh</div>
-            <div class="candidate-sub">Orange House</div>
-          </div>
-        </label>
-
-        <label class="candidate-row" data-candidate="2">
-          <div class="candidate-photo">
-            <img src="https://uploads.onecompiler.io/4437haxep/443jcuhtp/green.jpg" alt="Candidate 2 photo">
-          </div>
-          <div class="candidate-info">
-            <div class="candidate-title">Candidate 2 — Kunal Ghosh</div>
-            <div class="candidate-sub">Green House</div>
-          </div>
-        </label>
-
-        <label class="candidate-row" data-candidate="3">
-          <div class="candidate-photo">
-            <img src="https://uploads.onecompiler.io/4437haxep/443jcuhtp/Jana-Sena-Logo.jpg" alt="Candidate 3 photo">
-          </div>
-          <div class="candidate-info">
-            <div class="candidate-title">Candidate 3 — Shatarup Ghosh</div>
-            <div class="candidate-sub">Red House</div>
-          </div>
-        </label>
-
-      </div>
-
-      <!-- Right: voting controls -->
-      <aside class="controls" aria-label="Voting controls">
-        <!-- Not Voting option at top -->
-        <label class="vote-option">
-          <input type="radio" name="vp" value="not_voting" id="notVoting">
-          <span>Not Voting</span>
-        </label>
-
-        <!-- We'll create a radio for each candidate (hidden visually) and sync selection -->
-        <div id="candidateRadios" style="display:none;">
-          <input type="radio" name="vp" value="1" id="cand1">
-          <input type="radio" name="vp" value="2" id="cand2">
-          <input type="radio" name="vp" value="3" id="cand3">
-        </div>
-
-        <!-- A friendly label showing current selection -->
-        <div class="vote-option" aria-live="polite">
-          <strong>Selection:</strong>&nbsp;<span id="selectionLabel">None</span>
-        </div>
-
-        <div class="nav-buttons" role="navigation" aria-label="Navigation buttons">
-          <button type="button" id="backBtn">Back</button>
-          <button type="button" id="nextBtn" class="primary">Next</button>
-        </div>
-      </aside>
+<header>
+  <div class="left"><img src="logo.jpg" alt="EIEM Logo"></div>
+  <div class="center">
+    <h2>EIEM Student Voting Portal</h2>
+    <p class="subtitle">Empowering fair and transparent student elections</p>
+  </div>
+  <div class="right">
+    <div class="user-photo"><img id="profilePic" src="" alt="Profile Photo"></div>
+    <div class="user-info">
+      <span id="username"></span>
+      <button id="logoutBtn">Logout</button>
     </div>
   </div>
+</header>
 
-  <script>
-    // tiny script to keep visual candidate cards and radio inputs synced
+<main>
+  <h1>Vote for PRESIDENT</h1>
+  <div class="candidates" id="candidateGrid"></div>
+  <div class="buttons-container">
+    <button class="vote-btn-not" id="not-voteBtn">Not vote</button>
+    <button class="vote-btn" id="voteBtn">Submit Vote</button>
+  </div>
+</main>
 
-    const mainContainer = document.getElementById("votingContent");
-    const isAuthenticated = localStorage.getItem("loggedInUser");
+<div class="modal" id="modal">
+  <div class="modal-content" id="modal-content">
+    <img id="modalImg" src="">
+    <h3 id="modalCandidate"></h3>
+    <p>Voter: <span id="modalVoter"></span></p>
+    <button class="confirm" id="confirmBtn">Confirm Vote</button>
+    <button class="close" id="closeBtn">Cancel</button>
+  </div>
+</div>
 
-    if(!isAuthenticated) {
-      window.location.href = "login.html";
-    }
+<script>
+// --- Login check and user info ---
+const loggedUser = localStorage.getItem("loggedInUser");
+if (!loggedUser) {
+  alert("Please login first!");
+  window.location.href = "login.html";
+}
+document.getElementById("username").textContent = loggedUser;
+
+// load saved profile photo from localStorage
+const savedPhoto = localStorage.getItem("userPhoto");
+document.getElementById("profilePic").src =
+  savedPhoto || "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+
+// logout button
+document.getElementById("logoutBtn").addEventListener("click",logout);
+
+ function logout() {
+ localStorage.removeItem("loggedInUser");
+  localStorage.removeItem("userPhoto");
+  window.location.href = "home.html";
+}
 
 
 
-    const rows = document.querySelectorAll('.candidate-row');
-    const radios = {
-      '1': document.getElementById('cand1'),
-      '2': document.getElementById('cand2'),
-      '3': document.getElementById('cand3'),
-      'not_voting': document.getElementById('notVoting')
-    };
-    const selectionLabel = document.getElementById('selectionLabel');
+// --- Candidate list ---
+const candidates = [
+  { name: "Dilip Ghosh", house: "Orange House", img: "https://uploads.onecompiler.io/4437haxep/443jcuhtp/images%20(1).jpg" },
+  { name: "Kunal Ghosh", house: "Green House", img: "https://uploads.onecompiler.io/4437haxep/443jcuhtp/green.jpg" },
+  { name: "Shatarup Ghosh", house: "Red House", img: "https://uploads.onecompiler.io/4437haxep/443jcuhtp/Jana-Sena-Logo.jpg" }
+];
 
-    // clicking a card selects the corresponding radio
-    rows.forEach(row=>{
-      row.addEventListener('click', ()=> {
-        const id = row.dataset.candidate;
-        // clear previous selected class
-        rows.forEach(r=> r.classList.remove('selected'));
-        row.classList.add('selected');
+const grid = document.getElementById("candidateGrid");
+let selected = null;
 
-        // set the radio
-        if (radios[id]) radios[id].checked = true;
-        selectionLabel.textContent = row.querySelector('.candidate-title').textContent;
-      });
-    });
+candidates.forEach((c, i) => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `<img src="${c.img}" alt="${c.name}">
+    <strong>${c.name}</strong><small>${c.house}</small>`;
+  card.onclick = () => selectCandidate(i, card);
+  grid.appendChild(card);
+});
 
-    // clicking "Not Voting" clears card selection
-    radios['not_voting'].addEventListener('change', ()=> {
-      if (radios['not_voting'].checked){
-        rows.forEach(r=> r.classList.remove('selected'));
-        selectionLabel.textContent = 'Not voting';
-      }
-    });
+function selectCandidate(i, card) {
+  document.querySelectorAll(".card").forEach(el => el.classList.remove("selected"));
+  card.classList.add("selected");
+  selected = candidates[i];
+}
 
-    // allow radios to update selection label if changed by keyboard
-    Object.values(radios).forEach(radio=>{
-      radio.addEventListener('change', ()=>{
-        if (radio.checked){
-          if (radio.value === 'not_voting'){
-            selectionLabel.textContent = 'Not voting';
-            rows.forEach(r=> r.classList.remove('selected'));
-          } else {
-            const row = document.querySelector('.candidate-row[data-candidate="'+radio.value+'"]');
-            rows.forEach(r=> r.classList.remove('selected'));
-            if (row){
-              row.classList.add('selected');
-              selectionLabel.textContent = row.querySelector('.candidate-title').textContent;
-            }
-          }
-        }
-      });
-    });
+// --- Vote confirmation modal ---
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const modalCandidate = document.getElementById("modalCandidate");
+const modalVoter = document.getElementById("modalVoter");
+const notVoteBtn = document.getElementById("not-voteBtn");
+const modalContent = document.getElementById("modal-content");
+const mainmodalContent = modalContent.innerHTML;
+notVoteBtn.addEventListener("click", () => {
+  const modelContant = modal.innerHTML;
+  modal.style.display = "flex";
+  modalContent.innerHTML = `<div>
+    ${loggedUser} you do not vote to anyone
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+    </div>`;
+});
 
-    // demo back/next
-    document.getElementById('backBtn').addEventListener('click', ()=> alert('Back pressed'));
-    document.getElementById('nextBtn').addEventListener('click', ()=>{
-      const chosen = document.querySelector('input[name="vp"]:checked');
-      if (!chosen){
-        alert('Please choose a candidate or Not Voting before proceeding.');
-        return;
-      }
-      alert('You selected: ' + (chosen.value === 'not_voting' ? 'Not voting' : 'Candidate ' + chosen.value));
-      // here you'd submit the form or move to next step
-    });
-  </script>
+document.getElementById("voteBtn").onclick = () => {
+  if (!selected) return alert("Please select a candidate first!");
+  modal.style.display = "flex";
+  modalImg.src = selected.img;
+  modalCandidate.textContent = selected.name;
+  modalVoter.textContent = loggedUser;
+};
+
+document.getElementById("closeBtn").onclick = () => (modal.style.display = "none");
+document.getElementById("confirmBtn").onclick = () => {
+  alert(`✅ ${loggedUser}, your vote for ${selected.name} has been recorded.`);
+  localStorage.removeItem("loggedInUser");
+  localStorage.removeItem("userPhoto");
+  window.location.href = "home.html";
+};
+modal.onclick = e => { if (e.target === modal){
+   modal.style.display = "none";
+   modalContent.innerHTML = mainmodalContent;
+} };
+</script>
 </body>
 </html>

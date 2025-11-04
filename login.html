@@ -1,220 +1,252 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Card</title>
+  <title>Student Login — EIEM Voting Portal</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    :root {
+      --accent: #2563eb;
+      --accent-light: #3b82f6;
+      --glass: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.15);
+      --text: #f9fafb;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      background-image: url('https://uploads.onecompiler.io/4437haxep/4436y2x5e/1000286408.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
+      background: url("https://uploads.onecompiler.io/4437haxep/4436y2x5e/1000286408.jpg") center/cover no-repeat fixed;
+      color: var(--text);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 85px;
+      background: rgba(13, 22, 45, 0.55); /* More transparent header */
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .login-card {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 420px;
-      padding: 40px 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5pxs);
-      border: 1px solid rgba(0, 0, 0, 0.3);
+    header .left img {
+      height: 60px;
+      width: auto;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
     }
 
-    .login-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-    }
-
-    .card-header {
+    header .center {
+      flex: 1;
       text-align: center;
-      margin-bottom: 30px;
     }
 
-    .card-header h1 {
-      color: #1f1e1e;
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 8px;
+    header .center h2 {
+      font-size: 22px;
+      color: #f1f5f9;
+      font-weight: 700;
+      letter-spacing: 0.6px;
     }
 
-    .card-header p {
-      color: #000000b4;
-      font-size: 15px;
+    header .center .subtitle {
+      font-size: 13px;
+      color: #cbd5e1;
+      font-style: italic;
+    }
+
+    /* LOGIN CARD */
+    .login-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 430px;
+      background: rgba(255, 255, 255, 0.06); /* reduced opacity */
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 35px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(18px);
+      text-align: center;
+      margin-top: 130px;
+      transition: box-shadow 0.4s ease;
+      animation: fadein 0.7s ease;
+    }
+
+    .login-wrapper:hover {
+      /* Only glow, no movement */
+      box-shadow: 0 10px 40px rgba(37, 99, 235, 0.4);
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-header {
+      margin-bottom: 25px;
+    }
+
+    .login-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      margin-bottom: 5px;
+    }
+
+    .login-header p {
+      font-size: 14px;
+      color: #e2e8f0;
+      opacity: 0.9;
     }
 
     .input-group {
       margin-bottom: 20px;
+      text-align: left;
       position: relative;
     }
 
     .input-group label {
       display: block;
       margin-bottom: 8px;
-      color: #353535;
+      font-size: 15px;
       font-weight: 500;
-      font-size: 16px;
+      color: #f8fafc;
     }
 
     .input-group input {
       width: 100%;
-      padding: 14px 15px;
-      border: 1px solid #ddd;
+      padding: 14px 45px 14px 14px;
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: #ffffff; /* visible input text */
       font-size: 15px;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
+    }
+
+    .input-group input::placeholder {
+      color: rgba(255,255,255,0.7); /* make placeholders visible */
     }
 
     .input-group input:focus {
       outline: none;
-      border-color: #4a7dff;
-      box-shadow: 0 0 0 3px rgba(74, 125, 255, 0.2);
+      border-color: var(--accent-light);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
     }
 
     .input-group i {
       position: absolute;
       right: 15px;
-      top: 42px;
-      color: #999;
-    }
-
-    .options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-      font-size: 14px;
-    }
-
-    .remember-me {
-      display: flex;
-      align-items: center;
-    }
-
-
-    .remember-me input {
-      margin-right: 8px;
-    }
-
-    .forgot-password {
-      color: #4a7dff;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .forgot-password:hover {
-      color: #2c5fd6;
-      text-decoration: underline;
+      top: 46px;
+      color: #cbd5e1;
+      cursor: pointer;
     }
 
     .login-button {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(to right, #4a7dff, #6a11cb);
+      background: linear-gradient(to right, var(--accent), var(--accent-light));
       color: white;
       border: none;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-bottom: 25px;
+      margin-top: 10px;
     }
 
     .login-button:hover {
-      background: linear-gradient(to right, #3a6de0, #5a0fb5);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
-    }
-
-    .login-button:active {
-      transform: translateY(0);
-    }
-
-    .signup-link {
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .signup-link a {
-      color: #4a7dff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .signup-link a:hover {
-      color: #2c5fd6;
-      text-decoration: underline;
+      background: linear-gradient(to right, #1e40af, #2563eb);
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
     }
 
     .error-message {
-      color: #e74c3c;
+      color: #ffb3b3;
       font-size: 13px;
       margin-top: 5px;
       display: none;
     }
 
-    .password-toggle {
-      cursor: pointer;
-      user-select: none;
+    .footer-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #cbd5e1;
+      opacity: 0.8;
     }
 
     @media (max-width: 480px) {
-      .login-card {
-        padding: 30px 20px;
-      }
-
-      .options {
+      header {
         flex-direction: column;
-        align-items: flex-start;
+        height: auto;
+        padding: 12px;
       }
 
-      .forgot-password {
-        margin-top: 10px;
+      .login-wrapper {
+        padding: 30px 20px;
+        margin-top: 150px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="login-card">
-    <div class="card-header">
-      <h1>Welcome Back</h1>
+
+  <!-- Header -->
+  <header>
+    <div class="left"><img src="logo.jpg" alt="EIEM Logo"></div>
+    <div class="center">
+      <h2>EIEM Student Voting Portal</h2>
+      <p class="subtitle">Empowering fair and transparent student elections</p>
     </div>
+  </header>
+
+  <!-- Login Card -->
+  <div class="login-wrapper">
+    <div class="login-header">
+      <h1>Student Login</h1>
+      <p>Enter your credentials to access voting portal</p>
+    </div>
+
     <form id="loginForm">
       <div class="input-group">
-        <label for="name">Name</label>
-        <input style="text-transform: uppercase;" type="text" id="name" placeholder="Enter your Name" required>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="ENTER YOUR NAME" style="text-transform: uppercase;" required>
         <i class="fas fa-user"></i>
         <div class="error-message" id="nameError">Please enter your name</div>
       </div>
@@ -223,21 +255,24 @@
         <label for="email">Email Address</label>
         <input type="email" id="email" placeholder="Enter your email" required>
         <i class="fas fa-envelope"></i>
-        <div class="error-message" id="emailError">Please enter a valid email address</div>
+        <div class="error-message" id="emailError">Please enter a valid email</div>
       </div>
 
       <div class="input-group">
         <label for="password">Password</label>
-        <input style="text-transform: uppercase;" type="password" id="password" placeholder="Enter your password"
-          required>
-        <i class="fas fa-lock password-toggle" id="togglePassword"></i>
-        <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <i class="fas fa-eye" id="togglePassword"></i>
+        <div class="error-message" id="passwordError">Invalid password</div>
       </div>
+
       <button type="submit" class="login-button">Login</button>
     </form>
+
+    <div class="footer-note">
+      © 2025 EIEM Voting Committee. All Rights Reserved.
+    </div>
   </div>
 
   <script src="login.js"></script>
 </body>
-
 </html>
