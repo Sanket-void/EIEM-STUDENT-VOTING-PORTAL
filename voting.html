@@ -301,7 +301,7 @@ document.getElementById("logoutBtn").addEventListener("click",logout);
  function logout() {
  localStorage.removeItem("loggedInUser");
   localStorage.removeItem("userPhoto");
-  window.location.href = "home.html";
+  window.location.href = "index.html";
 }
 
 
@@ -361,7 +361,7 @@ document.getElementById("confirmBtn").onclick = () => {
   alert(`✅ ${loggedUser}, your vote for ${selected.name} has been recorded.`);
   localStorage.removeItem("loggedInUser");
   localStorage.removeItem("userPhoto");
-  window.location.href = "home.html";
+  window.location.href = "index.html";
 };
 modal.onclick = e => { if (e.target === modal){
    modal.style.display = "none";
