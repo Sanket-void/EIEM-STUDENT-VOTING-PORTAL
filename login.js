@@ -24,7 +24,7 @@ const user = [
     { name: "SONALI KAR", email: "sonalikar468@gmail.com", password: "SONALI@1234", photo:"sonali.jpg" },
     { name: "SUBHAJIT PAL", email: "subhajitpal@gmail.com", password: "SUBHAJIT@1234", photo:"pal.jpg" },
     { name: "SAMIDIP MAJUMDAR", email: "samidipmajumder@gmail.com", password: "SAMIDIP@1234", photo:"samidip.jpg" },
-    { name: "SRABANTI CHACKRABORTY", email: "srabantichackraborty@gmail.com", password: "SRABANTI@1234", photo:"" },
+    { name: "SRABANTI CHACKRABORTY", email: "srabantichackraborty@gmail.com", password: "SRABANTI@1234", photo:"srabanti.png" },
     { name: "TEST", email: "test@gmail.com", password: "test1234",  photo: "logo.jpg" }
 ];
 
