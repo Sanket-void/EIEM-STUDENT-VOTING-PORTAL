@@ -2,7 +2,7 @@ const user = [
 // <<<<<<< HEAD
     { name: "SUBHADEEP SUR", email: "subhadeep@gmail.com", password: "SUBHADEEP@1234", photo:"" },
     { name: "SONIYA BOSE", email: "soniyabose7@gmail.com", password: "SONIYA@1234", photo:"soniya.jpg" },
-    { name: "ADITI PODDAR", email: "imaditi2025@gmail.com", password: "ADITI@SANKET", photo:"aditi.jpg" },
+    { name: "ADITI PODDAR", email: "imaditi2025@gmail.com", password: "ADITI@1234", photo:"aditi.jpg" },
     { name: "MOUMITA GHOSH", email: "mou.std16@gmail.com", password: "MOUMITA@1234", photo:"moumita.jpg" },
     { name: "HRITWIK SHAH SWARNAKAR", email: "hritwik@gmail.com", password: "HRITWIK@1234", photo:"" },
     { name: "FALGUNI SARKAR", email: "falgunisarkar2007@gmail.com", password: "FALGUNI@1234", photo:"falguni.jpg" },
