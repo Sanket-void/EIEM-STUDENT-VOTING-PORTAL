@@ -1,30 +1,30 @@
 const user = [
 // <<<<<<< HEAD
     { name: "SUBHADEEP SUR", email: "subhadeep@gmail.com", password: "SUBHADEEP@1234", photo:"" },
-    { name: "SONIYA BOSE", email: "soniyabose7@gmail.com", password: "SONIYA@1234", photo:"soniya.jpg" },
-    { name: "ADITI PODDAR", email: "imaditi2025@gmail.com", password: "ADITI@1234", photo:"aditi.jpg" },
-    { name: "MOUMITA GHOSH", email: "mou.std16@gmail.com", password: "MOUMITA@1234", photo:"moumita.jpg" },
+    { name: "SONIYA BOSE", email: "soniyabose7@gmail.com", password: "SONIYA@1234", photo:"members/soniya.jpg" },
+    { name: "ADITI PODDAR", email: "imaditi2025@gmail.com", password: "ADITI@1234", photo:"members/aditi.jpg" },
+    { name: "MOUMITA GHOSH", email: "mou.std16@gmail.com", password: "MOUMITA@1234", photo:"members/moumita.jpg" },
     { name: "HRITWIK SHAH SWARNAKAR", email: "hritwik@gmail.com", password: "HRITWIK@1234", photo:"" },
-    { name: "FALGUNI SARKAR", email: "falgunisarkar2007@gmail.com", password: "FALGUNI@1234", photo:"falguni.jpg" },
-    { name: "MADHUSHALINI GHOSAL", email: "ghosalmadhushalini@gmail.com", password: "MADHUSHALINI@1234", photo:"madhisalini.jpg" },
+    { name: "FALGUNI SARKAR", email: "falgunisarkar2007@gmail.com", password: "FALGUNI@1234", photo:"members/falguni.jpg" },
+    { name: "MADHUSHALINI GHOSAL", email: "ghosalmadhushalini@gmail.com", password: "MADHUSHALINI@1234", photo:"members/madhisalini.jpg" },
     { name: "NABAMI DAS", email: "nabami@gmail.com", password: "NABAMI@1234", photo:"" },
     { name: "KRISHNA PRAMANIK", email: "krishna@gmail.com", password: "KRISHNA@1234", photo:"" },
-    { name: "SOUTAM GHOSH", email: "ghoshsoutam9@gmail.com", password: "SOUTAM@1234", photo:"soutam.jpg" },
-    { name: "SHAGNIK ROY CHOUDHURY", email: "shagnikroy70@gmail.com", password: "SHAGNIK@1234", photo:"sagnik.jpg" },
+    { name: "SOUTAM GHOSH", email: "ghoshsoutam9@gmail.com", password: "SOUTAM@1234", photo:"members/soutam.jpg" },
+    { name: "SHAGNIK ROY CHOUDHURY", email: "shagnikroy70@gmail.com", password: "SHAGNIK@1234", photo:"members/sagnik.jpg" },
     { name: "RAJIB BARMAN", email: "rajib@gmail.com", password: "RAJIB@1234", photo:"" },
     { name: "PRITY MANDAL", email: "prity@gmail.com", password: "PRITY@1234", photo:"" },
     { name: "SUPARNA CHAKRABARTY", email: "suparna@gmail.com", password: "SUPARNA@1234", photo:"" },
-    { name: "KRIPA SAHA", email: "sahakripa211@gmail.com", password: "KRIPA@1234", photo:"kripa.jpg" },
+    { name: "KRIPA SAHA", email: "sahakripa211@gmail.com", password: "KRIPA@1234", photo:"members/kripa.jpg" },
     { name: "SANKET SWARNAKAR", email: "2025sank@gmail.com", password: "SANKET@ADITI", photo:"me2.jpg" },
-    { name: "AKHIL TARAFDER", email: "akhiltarafder07@gmail.com", password: "AKHIL@1234", photo:"akhil.jpg" },
-    { name: "PAYEL BISWAS", email: "payelb646@gmail.com", password: "PAYEL@1234", photo:"payel.jpg" },
-    { name: "ANUSMITA SAHA", email: "imanusmita20@gmail.com", password: "ANUSMITA@1234", photo:"anushmita.jpg" },
+    { name: "AKHIL TARAFDER", email: "akhiltarafder07@gmail.com", password: "AKHIL@1234", photo:"members/akhil.jpg" },
+    { name: "PAYEL BISWAS", email: "payelb646@gmail.com", password: "PAYEL@1234", photo:"members/payel.jpg" },
+    { name: "ANUSMITA SAHA", email: "imanusmita20@gmail.com", password: "ANUSMITA@1234", photo:"members/anushmita.jpg" },
     { name: "SAYANTANU SAMADDAR", email: "sayan@gmail.com", password: "SAYANTANU@1234", photo:"" },
-    { name: "PUSHPITA KHATUA", email: "pushpitakhatua98@gmail.com", password: "PUSHPITA@1234", photo:"pushpita.jpg" },
-    { name: "SONALI KAR", email: "sonalikar468@gmail.com", password: "SONALI@1234", photo:"sonali.jpg" },
-    { name: "SUBHAJIT PAL", email: "subhajitpal@gmail.com", password: "SUBHAJIT@1234", photo:"pal.jpg" },
-    { name: "SAMIDIP MAJUMDAR", email: "samidipmajumder@gmail.com", password: "SAMIDIP@1234", photo:"samidip.jpg" },
-    { name: "SRABANTI CHACKRABORTY", email: "srabantichackraborty@gmail.com", password: "SRABANTI@1234", photo:"srabanti.png" },
+    { name: "PUSHPITA KHATUA", email: "pushpitakhatua98@gmail.com", password: "PUSHPITA@1234", photo:"members/pushpita.jpg" },
+    { name: "SONALI KAR", email: "sonalikar468@gmail.com", password: "SONALI@1234", photo:"members/sonali.jpg" },
+    { name: "SUBHAJIT PAL", email: "subhajitpal@gmail.com", password: "SUBHAJIT@1234", photo:"faculty/pal.jpg" },
+    { name: "SAMIDIP MAJUMDAR", email: "samidipmajumder@gmail.com", password: "SAMIDIP@1234", photo:"faculty/samidip.jpg" },
+    { name: "SRABANTI CHACKRABORTY", email: "srabantichackraborty@gmail.com", password: "SRABANTI@1234", photo:"faculty/srabanti.png" },
     { name: "TEST", email: "test@gmail.com", password: "test1234",  photo: "logo.jpg" }
 ];
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const passwordError = document.getElementById('passwordError');
     const togglePassword = document.getElementById('togglePassword');
 
-    // 👁 Toggle password visibility
+   
     togglePassword.addEventListener('click', function () {
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         this.classList.toggle('fa-eye-slash');
     });
 
-    // 🚀 Form submit
+   
     loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!email) return showError(emailError, 'Email is required');
         if (!password) return showError(passwordError, 'Password is required');
 
-        // 🧠 Compare case-insensitively
+       
         const authenticatedUser = user.find(
             u =>
                 u.name.toUpperCase() === name.toUpperCase() &&
